@@ -1,10 +1,19 @@
 import React from "react";
-const UsersList = () => {
+import { Link } from "react-router-dom";
+
+const UsersList = ({ users }) => {
   return (
     <>
-      <h1>Home Page</h1>
-      <h4>Users list page</h4>
+      <h2>Users List Page</h2>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            <Link to={`/users/${user.id}`}>{user.name}</Link>
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
+
 export default UsersList;
